@@ -241,7 +241,7 @@ class Track:
         self.age += 1
         self.time_since_update += 1
         self.original_ltwh = None
-        self.det_conf = None
+        self.det_conf = 0.
         self.instance_mask = None
         self.others = None
 
