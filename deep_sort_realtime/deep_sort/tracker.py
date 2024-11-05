@@ -220,12 +220,13 @@ class Tracker:
         )
 
         def score_agg_function(score_iou, score_emb, eps=1e-8):
-            score_iou_first_n = int((1 - score_iou - eps) * 100)
-            score_emb_first_n = int((1 - score_emb - eps) * 100)
-            return float(f'0.{score_iou_first_n:02d}{score_emb_first_n:02d}')
+            # score_iou_first_n = int((1 - score_iou - eps) * 100)
+            # score_emb_first_n = int((1 - score_emb - eps) * 100)
+            # return float(f"0.{score_iou_first_n:02d}{score_emb_first_n:02d}")
+            return (1 - score_iou) * (1 - score_emb)
 
         matches_iou_emb_with_agg_score = [
-            (track_idx, det_idx, score_agg_function(iou_match_to_iou[(track_idx, det_idx)], emb_score))
+            (track_idx, det_idx, score_agg_function(iou_match_to_iou.get((track_idx, det_idx), 0.), emb_score))
             for track_idx, det_idx, emb_score in matches_iou_emb
         ]
 

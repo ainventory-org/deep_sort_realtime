@@ -107,7 +107,7 @@ class Track:
 
         self.original_ltwh = original_ltwh
         self.det_class = det_class
-        self.det_conf = 0.  # when we create new track, it has score of 0
+        self.det_conf = 0.0  # when we create new track, it has score of 0
         self.bbox_id = bbox_id
         self.instance_mask = instance_mask
         self.others = others
@@ -241,7 +241,7 @@ class Track:
         self.age += 1
         self.time_since_update += 1
         self.original_ltwh = None
-        self.det_conf = 0.
+        self.det_conf = 0.0
         self.instance_mask = None
         self.others = None
 
