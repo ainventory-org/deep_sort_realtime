@@ -51,7 +51,7 @@ class DeepSortController:
                     'bbox_id': track.bbox_id,
                     'product_id': track.det_class,
                     'new': track.status == 'new',
-                    # 'track': track  # TODO: REMOVE IT
+                    'score': track.det_conf
                 }
                 for track in tracks
             ],
